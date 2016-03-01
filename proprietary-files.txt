@@ -132,3 +132,5 @@ etc/wifi/nvram_net.txt
 # Input
 usr/idc/Synaptics_HID_TouchPad.idc
 usr/keylayout/gpio-keys.kl
+# sswap can't be pulled with extract script
+#sbin/sswap:root/sbin/sswap
