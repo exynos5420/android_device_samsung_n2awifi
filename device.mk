@@ -56,7 +56,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    gps.universal5420
+    gps.universal5420 \
+    libdmitry
 
 # HW composer
 PRODUCT_PACKAGES += \
@@ -75,6 +76,12 @@ PRODUCT_COPY_FILES += \
 # Keystore
 PRODUCT_PACKAGES += \
     keystore.exynos5
+
+# libstlport
+# M removes libstlport, but some of our binary-only prebuilts need it, so we'll
+# add it back
+PRODUCT_PACKAGES += \
+    libstlport
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -112,6 +119,13 @@ PRODUCT_PACKAGES += \
     libExynosOMX_Core \
     libOMX.Exynos.MP3.Decoder \
     libstagefrighthw \
+    libOMX.Exynos.AVC.Decoder \
+    libOMX.Exynos.AVC.Encoder \
+    libOMX.Exynos.HEVC.Decoder \
+    libOMX.Exynos.MPEG4.Decoder \
+    libOMX.Exynos.MPEG4.Encoder \
+    libOMX.Exynos.VP8.Decoder \
+    libOMX.Exynos.WMV.Decoder
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -185,6 +199,9 @@ PRODUCT_PACKAGES += \
 
 # call dalvik heap config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+
+# call OMX build from source
+$(call inherit-product, hardware/samsung_slsi-cm/exynos5420/exynos5420.mk)
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/picassowifi/picassowifi-vendor.mk)

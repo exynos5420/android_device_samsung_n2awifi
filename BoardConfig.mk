@@ -19,7 +19,7 @@ LOCAL_PATH := device/samsung/picassowifi
 # Platform
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
-TARGET_SLSI_VARIANT := insignal
+TARGET_SLSI_VARIANT := cm
 TARGET_SOC := exynos5420
 
 # Architecture
@@ -30,8 +30,8 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a15
 
-# Audio
-BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
+# Vold
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
 # Bionic
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
@@ -57,6 +57,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_CONFIG := cyanogenmod_picassowifi_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos5420
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.hardware=universal5420
 
 # Battery
 BOARD_BATTERY_DEVICE_NAME := battery
@@ -66,14 +67,23 @@ TARGET_BOOTLOADER_BOARD_NAME := universal5420
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+# Build the platform with Clang
+USE_CLANG_PLATFORM_BUILD := true
+
 # FIMG2D
 BOARD_USES_SKIA_FIMGAPI := true
-BOARD_USES_NEON_BLITANTIH := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
 BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+BOARD_EGL_NEEDS_HANDLE_VALUE := true
+
+# Renderscript
+BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
+
+# Exynos display
+BOARD_USES_VIRTUAL_DISPLAY := true
 
 # HWCServices
 BOARD_USES_HWC_SERVICES := true
@@ -83,6 +93,10 @@ TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Hardware
 BOARD_HARDWARE_CLASS += device/samsung/picassowifi/cmhw
+BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
+
+# Keymaster
+BOARD_USES_TRUST_KEYMASTER := true
 
 # Init
 TARGET_NR_SVC_SUPP_GIDS := 20
@@ -113,8 +127,15 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2527068160
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12532580352
 BOARD_FLASH_BLOCK_SIZE := 4096
 
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= false
+WITH_DEXPREOPT := false
+DONT_DEXPREOPT_PREBUILTS := true
+
 # PowerHAL
-TARGET_POWERHAL_VARIANT := picassowifi
+TARGET_POWERHAL_VARIANT := samsung
+
+# Use these flags if the board has a ext4 partition larger than 2gb
+BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Recovery
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
@@ -133,29 +154,16 @@ BOARD_USES_SCALER := true
 BOARD_SEPOLICY_DIRS += \
 	device/samsung/picassowifi/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-	file_contexts \
-	device.te \
-	domain.te \
-	drmserver.te \
-	file.te \
-	gpsd.te \
-	init.te \
-	mediaserver.te \
-	servicemanager.te \
-	system_app.te \
-	system_server.te \
-	vold.te \
-	wpa.te
-
 # SurfaceFlinger
 BOARD_USES_SYNC_MODE_FOR_MEDIA := true
+
+# PowerHAL
+TARGET_POWERHAL_VARIANT := samsung
 
 # Webkit
 ENABLE_WEBGL := true
 
 # WFD
-BOARD_USES_WFD_SERVICE := true
 BOARD_USES_WFD := true
 
 # Wifi
