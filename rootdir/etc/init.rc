@@ -6,7 +6,7 @@
 
 import /init.environ.rc
 import /init.usb.rc
-import /init.${ro.hardware}.rc
+import /init.universal5420.rc
 import /init.trace.rc
 import /init.carrier.rc
 

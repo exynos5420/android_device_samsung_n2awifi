@@ -4,8 +4,7 @@ import init.samsung.rc
 
 on init
 
-    export LD_PRELOAD "/system/lib/libsamsung_symbols.so"
-    export LD_SHIM_LIBS /system/bin/gpsd|libdmitry.so
+    export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|libsamsung_symbols.so:/system/bin/gpsd|libdmitry.so"
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -105,9 +104,8 @@ on boot
     chmod 0222 /sys/kernel/debug/tracing/trace_marker
     write /sys/kernel/debug/tracing/tracing_on 0
 
-    setprop ro.build.product universal_5420
-    setprop ro.product.device universal_5420
 #    chmod 0666 /dev/pvrsrvkm
+    chmod 0644 /proc/cmdline
 
 # mobicore
     mkdir /data/app/mcRegistry 0775 system system
