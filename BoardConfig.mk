@@ -57,7 +57,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_CONFIG := cyanogenmod_picassowifi_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos5420
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.hardware=universal5420
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 
 # Battery
 BOARD_BATTERY_DEVICE_NAME := battery
