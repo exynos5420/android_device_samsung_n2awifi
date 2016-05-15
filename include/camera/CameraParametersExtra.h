@@ -40,3 +40,4 @@ CAMERA_PARAMETERS_EXTRA_C_DURATION_TIMER \
     /* LAST_LINE OF CAMERA_PARAMETERS_EXTRA_H, every line before this one *MUST* have
      * a backslash \ at the end of the line or else everything will break.
      */
+
