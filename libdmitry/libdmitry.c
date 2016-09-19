@@ -143,7 +143,7 @@ void _ZN7android13SensorManagerC1Ev(void *sensorMgr)
 {
     void *string;
 
-    _ZN7android8String16C1EPKc(&string, "gps.universal5420");
+    _ZN7android8String16C1EPKc(&string, "gps.default");
     _ZN7android13SensorManagerC1ERKNS_8String16E(sensorMgr, &string);
     _ZN7android8String16D1Ev(&string);
 }
@@ -188,7 +188,7 @@ void *CRYPTO_malloc(uint32_t sz, const char *file, uint32_t line)
  */
 void libEvtLoading(void)
 {
-    ALOGI("Nexus 10 GPS interposition library loaded. Your GPS should work in M now.");
+    ALOGI("T520 (picassowifi) GPS interposition library loaded. Your GPS should work in M now.");
 }
 
 /*

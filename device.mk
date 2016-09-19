@@ -66,6 +66,11 @@ PRODUCT_PACKAGES += \
     gps.universal5420 \
     libdmitry
 
+# GPS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
+
 # HW composer
 PRODUCT_PACKAGES += \
     libion \
@@ -189,7 +194,6 @@ PRODUCT_PACKAGES += \
     hostapd_default.conf \
     libwpa_client \
     wpa_supplicant
-
 
 PRODUCT_PACKAGES += \
     libnetcmdiface \
