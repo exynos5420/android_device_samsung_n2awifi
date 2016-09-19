@@ -74,6 +74,7 @@ PRODUCT_COPY_FILES += \
 # HW composer
 PRODUCT_PACKAGES += \
     libion \
+    hwcomposer.exynos5 \
     gralloc.exynos5
 
 # IR

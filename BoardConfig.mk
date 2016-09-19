@@ -33,9 +33,6 @@ TARGET_CPU_VARIANT := cortex-a15
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
-# Bionic
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -47,10 +44,15 @@ TARGET_OTA_ASSERT_DEVICE := picassowifi
 
 # Camera
 # COMMON_GLOBAL_CFLAGS += -DUSE_MEMORY_HEAP_ION
+BOARD_CAMERA_SNUMINTS := 23
 BOARD_NEEDS_MEMORYHEAPION := true
+COMMON_GLOBAL_CFLAGS += -DCAMERA_SNUMINTS=$(BOARD_CAMERA_SNUMINTS)
 COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DSAMSUNG_DVFS
+
+# Force the screenshot path to CPU consumer
+COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
 
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
@@ -59,8 +61,12 @@ TARGET_KERNEL_CONFIG := cyanogenmod_picassowifi_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos5420
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 
-# Battery
+# Charging mode
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_BATTERY_DEVICE_NAME := battery
+BACKLIGHT_PATH := "/sys/class/backlight/panel/brightness"
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := universal5420
@@ -75,7 +81,7 @@ BOARD_USES_SKIA_FIMGAPI := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Renderscript
 BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
@@ -106,20 +112,18 @@ COMMON_GLOBAL_CFLAGS += -DWIDEVINE_PLUGIN_PRE_NOTIFY_ERROR
 # OpenMAX Video
 BOARD_USE_STOREMETADATA := true
 BOARD_USE_METADATABUFFERTYPE := true
-BOARD_USE_S3D_SUPPORT := true
 BOARD_USE_DMA_BUF := true
 BOARD_USE_ANB_OUTBUF_SHARE := true
-BOARD_USE_GSC_RGB_ENCODER := true
 BOARD_USE_IMPROVED_BUFFER := true
-BOARD_USE_CSC_HW := false
-BOARD_USE_H264_PREPEND_SPS_PPS := false
+BOARD_USE_NON_CACHED_GRAPHICBUFFER := true
+BOARD_USE_GSC_RGB_ENCODER := true
+BOARD_USE_CSC_HW := true
 BOARD_USE_QOS_CTRL := false
+BOARD_USE_S3D_SUPPORT := true
 BOARD_USE_VP8ENC_SUPPORT := true
-BOARD_USE_ENCODER_RGBINPUT_SUPPORT := true
-BOARD_USE_DUALDPB_MODE := true
 
 # Sensors
-TARGET_NO_SENSOR_PERMISSION_CHECK := true
+# TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
@@ -132,7 +136,10 @@ WITH_DEXPREOPT_BOOT_IMG_ONLY ?= false
 WITH_DEXPREOPT := false
 DONT_DEXPREOPT_PREBUILTS := true
 
-# PowerHAL
+# Disable journaling on system.img to save space
+BOARD_SYSTEMIMAGE_JOURNAL_SIZE := 0
+
+# Unified PowerHAL
 TARGET_POWERHAL_VARIANT := samsung
 
 # Use these flags if the board has a ext4 partition larger than 2gb
@@ -148,8 +155,12 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_RECOVERY_SWIPE := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 
+# Samsung Gralloc
+TARGET_SAMSUNG_GRALLOC_EXTERNAL_USECASES := true
+
 # Scaler
 BOARD_USES_SCALER := true
+BOARD_USES_GSC_VIDEO := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
@@ -157,9 +168,6 @@ BOARD_SEPOLICY_DIRS += \
 
 # SurfaceFlinger
 BOARD_USES_SYNC_MODE_FOR_MEDIA := true
-
-# PowerHAL
-TARGET_POWERHAL_VARIANT := samsung
 
 # Webkit
 ENABLE_WEBGL := true
@@ -175,8 +183,14 @@ BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
+WIFI_BAND                        := 802_11_ABG
+
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcmdhd_sta.bin"
+
+WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcmdhd_apsta.bin"
+WIFI_DRIVER_NVRAM_PATH_PARAM     := "/sys/module/dhd/parameters/nvram_path"
+WIFI_DRIVER_NVRAM_PATH           := "/system/etc/wifi/nvram_net.txt"
 
 # inherit from the proprietary version
 -include vendor/samsung/picassowifi/BoardConfigVendor.mk

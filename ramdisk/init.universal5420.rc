@@ -4,7 +4,7 @@ import init.samsung.rc
 
 on init
 
-    export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|libsamsung_symbols.so:/system/bin/gpsd|libdmitry.so"
+    export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|libion_exynos.so:/system/lib/libhwjpeg.so|libion_exynos.so:/system/lib/libcsc.so|libion_exynos.so:/system/lib/libbinder.so|libion_exynos.so:/system/lib/libexynosv4l2.so|libion_exynos.so:/system/bin/gpsd|system/lib/libdmitry.so"
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -55,6 +55,7 @@ on property:sys.boot_completed=1
     #write /sys/module/cpu_boost/parameters/input_boost_ms 500
 
 on post-fs-data
+
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
@@ -331,6 +332,7 @@ on boot
     chown system radio /sys/class/sec/sec_ir/ir_send
     chown system radio /sys/class/sec/sec_ir/ir_send_result
 
+
 # Permissions for Barcode Emul
     chown system radio /sys/class/sec/sec_barcode_emul/barcode_send
     chown system radio /sys/class/sec/sec_barcode_emul/barcode_ver_check
@@ -393,9 +395,14 @@ on fs
     chmod 0660 /dev/ttySAC1
     chown root system /sys/class/sec/gps/GPS_PWR_EN/value
     chmod 0664 /sys/class/sec/gps/GPS_PWR_EN/value
+    chmod 0664 /sys/power/wake_lock
+    chmod 0664 /sys/power/wake_unlock
+    
+   chmod 0664 /sys/power/wakeup_count
     mkdir /data/system 0771 system system
     chown system system /data/system
     mkdir /data/system/gps 0771 system system
+    chown system system /data/system/gps
     chown system system /data/system/gps
     rm /data/gps_started
     rm /data/glonass_started
@@ -435,8 +442,13 @@ service bttestdaemon /system/bin/bttestd
     oneshot
 
 # for ethernet
-service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
-    class main
+service dhcpcd_eth0 /system/bin/dhcpcd -aABDKL
+    class late_start
+    disabled
+    oneshot
+
+service iprenew_eth0 /system/bin/dhcpcd -n
+    class late_start
     disabled
     oneshot
 
@@ -457,11 +469,12 @@ on property:ro.SecEDS.enable=false
     stop TvoutService_C
 
 # GPS
-#service gpsd /system/bin/gpsd -c /system/etc/gps.xml
-#    class main
-#    user gps
-#    group system inet net_raw
-#    ioprio be 0
+service gpsd /system/vendor/bin/gpsd /system/vendor/etc/gps.xml
+    class main
+    user gps
+    group system inet net_raw
+    ioprio be 0
+    seclabel u:r:gpsd:s0
 
 # MobiCore startup
 service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
@@ -526,8 +539,9 @@ on property:persist.sys.storage_preload=1
 on property:persist.sys.storage_preload=0
     start umount_service
 
-service swapon /sbin/sswap -s
+service sswap /sbin/sswap -s
     class core
     user root
     group root
     oneshot
+    seclabel u:r:sswap:s0
