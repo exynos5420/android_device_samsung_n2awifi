@@ -188,7 +188,7 @@ void *CRYPTO_malloc(uint32_t sz, const char *file, uint32_t line)
  */
 void libEvtLoading(void)
 {
-    ALOGI("T520 (picassowifi) GPS interposition library loaded. Your GPS should work in M now.");
+    ALOGI("T520 (n2awifi) GPS interposition library loaded. Your GPS should work in M now.");
 }
 
 /*

@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/picassowifi
+LOCAL_PATH := device/samsung/n2awifi
 
 # Platform
 BOARD_VENDOR := samsung
@@ -40,7 +40,7 @@ BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # Bootloader
-TARGET_OTA_ASSERT_DEVICE := picassowifi
+TARGET_OTA_ASSERT_DEVICE := picassowifi,n2awifi
 
 # Camera
 # COMMON_GLOBAL_CFLAGS += -DUSE_MEMORY_HEAP_ION
@@ -57,7 +57,7 @@ COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
 # Kernel
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-TARGET_KERNEL_CONFIG := cyanogenmod_deathly_picassowifi_defconfig
+TARGET_KERNEL_CONFIG := cyanogenmod_deathly_n2awifi_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos5420
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.8
 
@@ -96,7 +96,7 @@ BOARD_USES_HWC_SERVICES := true
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Hardware
-BOARD_HARDWARE_CLASS += device/samsung/picassowifi/cmhw
+BOARD_HARDWARE_CLASS += device/samsung/n2awifi/cmhw
 BOARD_HARDWARE_CLASS += hardware/samsung/cmhw
 
 # Keymaster
@@ -164,7 +164,7 @@ BOARD_USES_GSC_VIDEO := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-	device/samsung/picassowifi/sepolicy
+	device/samsung/n2awifi/sepolicy
 
 # SurfaceFlinger
 BOARD_USES_SYNC_MODE_FOR_MEDIA := true
@@ -193,4 +193,4 @@ WIFI_DRIVER_NVRAM_PATH_PARAM     := "/sys/module/dhd/parameters/nvram_path"
 WIFI_DRIVER_NVRAM_PATH           := "/system/etc/wifi/nvram_net.txt"
 
 # inherit from the proprietary version
--include vendor/samsung/picassowifi/BoardConfigVendor.mk
+-include vendor/samsung/n2awifi/BoardConfigVendor.mk
