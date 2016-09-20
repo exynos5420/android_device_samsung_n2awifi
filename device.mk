@@ -189,6 +189,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libnetcmdiface \
+	wifiloader \
     macloader
 
 # call dalvik heap config
