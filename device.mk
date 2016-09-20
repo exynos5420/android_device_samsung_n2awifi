@@ -170,10 +170,6 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap
 
-# Recovery
-PRODUCT_PACKAGES += \
-    init.recovery.universal5420.rc
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.universal5420
