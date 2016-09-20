@@ -4,7 +4,7 @@ import init.samsung.rc
 
 on init
 
-    export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|libion_exynos.so:/system/lib/libhwjpeg.so|libion_exynos.so:/system/lib/libcsc.so|libion_exynos.so:/system/lib/libbinder.so|libion_exynos.so:/system/lib/libexynosv4l2.so|libion_exynos.so:/system/bin/gpsd|system/lib/libdmitry.so"
+    export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|libsamsung_symbols.so:/system/bin/gpsd|libdmitry.so"
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
