@@ -25,12 +25,20 @@ LOCAL_SRC_FILES := audio_hw.c ril_interface.c
 
 LOCAL_C_INCLUDES += \
 	external/tinyalsa/include \
+	hardware/samsung_slsi/exynos5/include \
 	$(call include-path-for, audio-effects) \
 	$(call include-path-for, audio-utils) \
-	$(call include-path-for, audio-route)
+	$(call include-path-for, audio-route) \
+        $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+
+LOCAL_ADDITIONAL_DEPENDENCIES += \
+	$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+
 
 LOCAL_SHARED_LIBRARIES := liblog libcutils libtinyalsa libaudioutils libdl \
 	libaudience_voicefx libaudioroute
+
+LOCAL_CFLAGS := -Wno-unused-parameter
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -41,21 +49,13 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := libaudience_voicefx
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES:= eS325VoiceProcessing.cpp
+LOCAL_SRC_FILES := eS325VoiceProcessing.cpp
 
 LOCAL_C_INCLUDES += \
 	$(call include-path-for, audio-effects)
 
 LOCAL_SHARED_LIBRARIES := liblog libutils
 
+LOCAL_CFLAGS := -Wno-unused-parameter
+
 include $(BUILD_SHARED_LIBRARY)
-
-
-# Mixer configurations
-include $(CLEAR_VARS)
-LOCAL_MODULE := mixer_paths.xml
-LOCAL_MODULE_TAGS := optional eng
-LOCAL_MODULE_CLASS := ETC
-LOCAL_SRC_FILES := mixer_paths.xml
-LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)
-include $(BUILD_PREBUILT)
