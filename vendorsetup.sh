@@ -1,1 +1,1 @@
-add_lunch_combo cm_n2awifi-userdebug
+add_lunch_combo lineage_n2awifi-userdebug
