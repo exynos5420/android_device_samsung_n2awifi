@@ -64,6 +64,11 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.universal5420.rc
 
+# call dalvik heap and hwui config
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/samsung/n2awifi/n2awifi-vendor.mk)
 
