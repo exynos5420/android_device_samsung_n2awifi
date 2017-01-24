@@ -16,6 +16,8 @@
 
 LOCAL_PATH := device/samsung/n2awifi
 
+
+
 # Platform
 BOARD_VENDOR := samsung
 TARGET_SOC := exynos5420
@@ -27,13 +29,16 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 TARGET_OTA_ASSERT_DEVICE := picassowifi,n2awifi
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_deathly_n2awifi_defconfig
+TARGET_KERNEL_CONFIG := lineageos_deathly_n2awifi_defconfig
 
-# Includes
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+# IR Blaster
+IR_HAS_ONE_FREQ_RANGE := true
 
 # Hardware
 BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
+
+# Includes
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
