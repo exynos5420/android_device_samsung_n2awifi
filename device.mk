@@ -23,6 +23,10 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_WIDTH := 2560
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.primary.universal5420
@@ -30,20 +34,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2560
-TARGET_SCREEN_WIDTH := 1600
-
-# GPS
-PRODUCT_PACKAGES += \
-    libdmitry
-
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
 
-# TouchScreen
+# GPS Shim
+PRODUCT_PACKAGES += \
+    libdmitry
+
+# Touchscreen
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/sec_touchscreen.kl:system/usr/keylayout/sec_touchscreen.kl \
     $(LOCAL_PATH)/configs/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \
@@ -59,6 +59,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
 
+
+# Ramdisk
 PRODUCT_PACKAGES += \
     fstab.universal5420 \
     init.target.rc \
@@ -70,7 +72,7 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # call the proprietary setup
-$(call inherit-product-if-exists, vendor/samsung/n2awifi/n2awifi-vendor.mk)
+$(call inherit-product, vendor/samsung/n2awifi/n2awifi-vendor.mk)
 
 # Import the common tree changes
 include device/samsung/exynos5420-common/exynos5420.mk
