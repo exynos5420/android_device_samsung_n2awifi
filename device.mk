@@ -72,7 +72,7 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # call the proprietary setup
-$(call inherit-product, vendor/samsung/n2awifi/n2awifi-vendor.mk)
+$(call inherit-product, vendor/samsung/n1awifi/n1awifi-vendor.mk)
 
 # Import the common tree changes
 include device/samsung/exynos5420-common/exynos5420.mk
