@@ -1,0 +1,1 @@
+./../../samsung/n1awifi/extract-files.sh $@
