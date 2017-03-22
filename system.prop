@@ -4,3 +4,5 @@
 ro.sf.lcd_density=320
 # Radio
 ro.radio.noril=yes
+# LD Device Maintainer
+ro.ld.maintainer=Joshua LaCruz (LaCruz)

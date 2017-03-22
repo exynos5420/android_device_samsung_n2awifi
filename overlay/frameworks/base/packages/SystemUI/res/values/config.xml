@@ -27,4 +27,5 @@
 
     <!-- Show rotation lock toggle in System UI-->
     <bool name="config_showRotationLock">true</bool>
+
 </resources>
