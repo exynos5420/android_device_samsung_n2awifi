@@ -32,7 +32,7 @@ PRODUCT_PACKAGES += \
     audio.primary.universal5420
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+    $(LOCAL_PATH)/configs/audio/mixer_paths_0.xml:system/etc/mixer_paths_0.xml
 
 # GPS
 PRODUCT_COPY_FILES += \
