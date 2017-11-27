@@ -354,9 +354,9 @@
     <ctl name="AIF2TX1 Input 1" value="ASRC1L" />
     <ctl name="AIF2TX2 Input 1" value="ASRC1R" />
 
-    <ctl name="IN1L Volume" value="32" />
+    <ctl name="IN1L Volume" value="50" />
     <ctl name="IN1L Digital Volume" value="128" />
-    <ctl name="LHPF1 Input 1 Volume" value="32" />
+    <ctl name="LHPF1 Input 1 Volume" value="50" />
   </path>
 
   <path name="builtin-mic">
@@ -561,9 +561,9 @@
     -->
     <path name="main-mic" />
 
-    <ctl name="IN1L Volume" value="18" />
+    <ctl name="IN1L Volume" value="50" />
     <ctl name="IN1L Digital Volume" value="128" />
-    <ctl name="LHPF1 Input 1 Volume" value="32" />
+    <ctl name="LHPF1 Input 1 Volume" value="50" />
   </path>
 
   <path name="voice-second-mic">
@@ -620,9 +620,9 @@
     -->
     <path name="main-mic" />
 
-    <ctl name="IN1L Volume" value="27" />
+    <ctl name="IN1L Volume" value="50" />
     <ctl name="IN1L Digital Volume" value="152" />
-    <ctl name="LHPF1 Input 1 Volume" value="32" />
+    <ctl name="LHPF1 Input 1 Volume" value="50" />
   </path>
 
   <path name="voice-rec-second-mic">
@@ -731,9 +731,9 @@
     -->
     <path name="main-mic" />
 
-    <ctl name="IN1L Volume" value="21" />
+    <ctl name="IN1L Volume" value="50" />
     <ctl name="IN1L Digital Volume" value="128" />
-    <ctl name="LHPF1 Input 1 Volume" value="32" />
+    <ctl name="LHPF1 Input 1 Volume" value="50" />
   </path>
 
   <path name="communication-second-mic">
