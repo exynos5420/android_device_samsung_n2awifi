@@ -211,4 +211,3 @@ void libEvtUnloading(void)
     return _ZN7android13SensorManager13getSensorListEPPKPKNS_6SensorE(thiz, list);
   }
 }
-
