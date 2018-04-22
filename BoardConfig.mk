@@ -16,6 +16,8 @@
 
 LOCAL_PATH := device/samsung/n2awifi
 
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
+
 # Platform
 BOARD_VENDOR := samsung
 TARGET_SOC := exynos5420
@@ -31,12 +33,6 @@ TARGET_KERNEL_CONFIG := lineageos_deathly_n2awifi_defconfig
 
 # IR Blaster
 IR_HAS_ONE_FREQ_RANGE := true
-
-# Hardware
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
-
-# Includes
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608

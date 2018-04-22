@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.hardware;
+package org.lineage.hardware;
 
-import org.cyanogenmod.hardware.util.FileUtils;
+import org.lineage.hardware.util.FileUtils;
 
 /*
  * Disable capacitive keys
