@@ -16,4 +16,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_MODEL=SM-T520 \
     PRODUCT_NAME=n2awifi \
     PRODUCT_DEVICE=n2awifi \
+    PRIVATE_BUILD_DESC="samsung/picassowifiue/picassowifi:4.4.2/KOT49H/T520UEUAOD1:user/release-keys" \
     TARGET_DEVICE=n2awifi
+
+BUILD_FINGERPRINT := samsung/picassowifiue/picassowifi:4.4.2/KOT49H/T520UEUAOD1:user/release-keys
