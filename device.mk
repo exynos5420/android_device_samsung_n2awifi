@@ -22,3 +22,6 @@ PRODUCT_PACKAGES += \
 
 # Inherit from n2a-common
 $(call inherit-product, device/samsung/n2a-common/device-common.mk)
+
+# call the proprietary setup
+$(call inherit-product-if-exists, vendor/samsung/n2awifi/n2awifi-vendor.mk)
