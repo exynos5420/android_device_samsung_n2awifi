@@ -1,5 +1,5 @@
-#
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (c) 2017 The LineageOS Project
+# Copyright (C) 2017 Martin Bouchet
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,12 +12,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),n2awifi)
+# Sensors HAL
+include $(CLEAR_VARS)
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
+LOCAL_MODULE := sensors.$(TARGET_BOOTLOADER_BOARD_NAME)
+LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := sensorswrapper.c
 
-endif
+LOCAL_SHARED_LIBRARIES := liblog libcutils libhardware
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_SHARED_LIBRARY)
