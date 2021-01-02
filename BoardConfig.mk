@@ -29,6 +29,10 @@ TARGET_OTA_ASSERT_DEVICE := picassowifi,n2awifi
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_n2awifi_defconfig
 
+# GPS
+TARGET_LD_SHIM_LIBS += \
+	/system/bin/gpsd|libdmitry.so
+
 # IR Blaster
 IR_HAS_ONE_FREQ_RANGE := true
 
