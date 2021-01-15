@@ -13,7 +13,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := device/samsung/n2awifi
-
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_n2awifi.mk
