@@ -36,8 +36,8 @@ TARGET_LD_SHIM_LIBS += \
 # IR Blaster
 IR_HAS_ONE_FREQ_RANGE := true
 
-# Hardware
-BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/cmhw
+# LineageOS Hardware
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
 
 # Includes
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
