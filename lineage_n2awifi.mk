@@ -9,6 +9,9 @@ PRODUCT_BRAND := samsung
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
+# Inherit more LineageOS stuff.
+$(call inherit-product, vendor/lineage/config/data_only.mk)
+
 PRODUCT_NAME := lineage_n2awifi
 PRODUCT_DEVICE := n2awifi
 
