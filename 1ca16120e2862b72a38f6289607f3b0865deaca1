@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3e08732a_b2cdd6b7",
+        "filename": "lineage_n2awifi.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-01-16T14:37:55Z",
+      "side": 1,
+      "message": "Got it from your link. Rmeoved again.",
+      "parentUuid": "d0b0effc_06377349",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 0
+      },
+      "revId": "1ca16120e2862b72a38f6289607f3b0865deaca1",
+      "serverId": "c6d92919-bfe7-411c-9f64-004a8163e0f0",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1c19112d_797a6c9a",
         "filename": "lineagehw/org/lineageos/hardware/KeyDisabler.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "00010c31_4f6580b8",
+        "filename": "lineagehw/org/lineageos/hardware/KeyDisabler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-01-16T14:37:55Z",
+      "side": 1,
+      "message": "changed to lineageos",
+      "parentUuid": "1c19112d_797a6c9a",
+      "range": {
+        "startLine": 17,
+        "startChar": 12,
+        "endLine": 17,
+        "endChar": 23
+      },
+      "revId": "1ca16120e2862b72a38f6289607f3b0865deaca1",
+      "serverId": "c6d92919-bfe7-411c-9f64-004a8163e0f0",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40ef98f1_d414eb17",
         "filename": "lineagehw/org/lineageos/hardware/KeyDisabler.java",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "1ca16120e2862b72a38f6289607f3b0865deaca1",
       "serverId": "c6d92919-bfe7-411c-9f64-004a8163e0f0",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "75db8a59_96712e92",
+        "filename": "lineagehw/org/lineageos/hardware/KeyDisabler.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2021-01-16T14:37:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40ef98f1_d414eb17",
+      "range": {
+        "startLine": 19,
+        "startChar": 11,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "1ca16120e2862b72a38f6289607f3b0865deaca1",
+      "serverId": "c6d92919-bfe7-411c-9f64-004a8163e0f0",
+      "unresolved": false
     }
   ]
 }
