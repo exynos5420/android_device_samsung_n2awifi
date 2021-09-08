@@ -1,6 +1,84 @@
+
 [
+    {
+        "repository": "android_hardware_samsung",
+        "target_path": "hardware/samsung"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi_exynos",
+        "target_path": "hardware/samsung_slsi/exynos"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi_exynos5",
+        "target_path": "hardware/samsung_slsi/exynos5"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi_exynos5420",
+        "target_path": "hardware/samsung_slsi/exynos5420"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi_openmax",
+        "target_path": "hardware/samsung_slsi/openmax"
+    },
+    {
+        "repository": "android_kernel_samsung_exynos5420",
+        "target_path": "kernel/samsung/exynos5420"
+    },
+    {
+        "repository": "android_device_samsung_slsi_sepolicy",
+        "target_path": "device/samsung_slsi/sepolicy"
+    },
+    {
+        "repository": "android_device_samsung_universal5420-common",
+        "target_path": "device/samsung/universal5420-common"
+    },
+    
+    {
+        "repository": "android_device_samsung_n1awifi",
+        "target_path": "device/samsung/n1awifi"
+    },
+    {
+        "repository": "android_hardware_samsung",
+        "target_path": "hardware/samsung"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi-cm_exynos",
+        "target_path": "hardware/samsung_slsi-cm/exynos"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi-cm_exynos5",
+        "target_path": "hardware/samsung_slsi-cm/exynos5"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi-cm_exynos5420",
+        "target_path": "hardware/samsung_slsi-cm/exynos5420"
+    },
+    {
+        "repository": "android_hardware_samsung_slsi-cm_openmax",
+        "target_path": "hardware/samsung_slsi-cm/openmax"
+    },
+    {
+        "repository": "android_kernel_samsung_exynos5420",
+        "target_path": "kernel/samsung/exynos5420"
+    },
+    {
+        "repository": "android_external_stlport",
+        "target_path": "external/stlport"
+    },
+    {
+        "repository": "android_packages_resources_devicesettings",
+        "target_path": "packages/resources/devicesettings"
+    },
+    {
+        "repository": "android_device_samsung_n1a-common",
+        "target_path": "device/samsung/n1a-common"
+    },
+    {
+        "repository": "android_device_samsung_n2awifi",
+        "target_path": "device/samsung/n2awifi"
+    },
     {
         "repository": "android_device_samsung_n2a-common",
         "target_path": "device/samsung/n2a-common"
-    }
+    },
 ]
